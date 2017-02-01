@@ -1,2 +1,9 @@
-<h1>Portion#new</h1>
-<p>Find me in app/views/portion/new.html.erb</p>
+<h1>Create a new portion</h1>
+
+<%= simple_form_for @portion, :url => {:action=>:create} do |f| %>
+
+<%= f.input :weight, collection: 1..1000 %>
+<%= f.collection_select :food_id, Food.all.sort_by(&:name), :id, :name %>
+<%= f.button :submit %>
+
+<% end %>
