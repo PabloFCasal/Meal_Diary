@@ -1,2 +1,23 @@
 <h1>Portion#index</h1>
-<p>Find me in app/views/portion/index.html.erb</p>
+<p>Listado</p>
+<table>
+  <tr>
+    <td>Portion id</td>
+    <td>Weight</td>
+    <td>Food</td>
+    <td>Carbs</td>
+    <td>Proteins</td>
+    <td>Fats</td>
+  </tr>
+
+  <% @portions.each do |portion| %>
+  <tr>
+    <td><%= portion.id %></td>
+    <td><%= portion.weight %></td>
+    <td><%= portion.food.nil? ? "No hay comida" : portion.food.name %></td>
+    <td><%= portion.food.nil? ? "No valid" : (portion.weight*portion.food.carbs)/100%></td>
+    <td><%= portion.food.nil? ? "No valid" : (portion.weight*portion.food.proteins)/100%></td>
+    <td><%= portion.food.nil? ? "No valid" : (portion.weight*portion.food.fats)/100%></td>
+  </tr>
+  <% end %>
+</table>
