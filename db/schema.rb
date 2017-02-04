@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201235643) do
+ActiveRecord::Schema.define(version: 20170204135818) do
 
   create_table "families", force: :cascade do |t|
     t.string   "family"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 20170201235643) do
     t.integer  "weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "food_id"
+    t.integer  "meal_id"
   end
 
 end
