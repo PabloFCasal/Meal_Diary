@@ -32,7 +32,7 @@ def destroy
 end
 
 def portion_params
-  params.require(:portion).permit(:weight, :food_id)
+  params.require(:portion).permit(:weight, :food_id, :meal_id)
 end
 
 end
