@@ -25,10 +25,14 @@ end
 def show
   @portion = Portion.find(params[:id])
 end
-def view
-end
 
 def destroy
+  @portion = Portion.find(params[:id])
+  @portion.destroy
+  respond_to do |format|
+    format.html { redirect_to portions_url, notice: 'Portion was successfully destroyed.' }
+    format.json { head :no_content }
+  end
 end
 
 def portion_params
