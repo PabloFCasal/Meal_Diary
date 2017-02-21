@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+
 <html>
   <head>
     <title>Meal Diary</title>
@@ -7,64 +9,28 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <h2>HEADER</h2>
+
     <header>
       <nav>
         <ul>
-          <li><%= link_to "Home", :controller => "welcome", :action => "index" %> </li>
-          <li><%= link_to "Foods", :controller => "foods", :action => "index" %></li>
+          <li><%= link_to_unless_current "Home", :controller => "welcome", :action => "index" %> </li>
+          <li><%= link_to_unless_current "Foods", :controller => "foods", :action => "index" %></li>
         </ul>
       </nav>
     </header>
 
 <h1><%= Time.now.strftime("%d/%m/%Y") %></h1>
 
-<div>
-  <h2>Breakfast</h2>
-  <ul>
-    <li><%= link_to "New Portion", :controller => "portions", :action => "new" %></li>
-    <li><%= link_to "Portion's List", :controller => "portions", :action => "index" %></li>
-  </ul>
-</div>
+<% Moment.all.each do |moment| %>
+  <div>
+    <h2><%= moment.name %></h2>
+    <ul>
+      <li><%= link_to "New Portion", :controller => "portions", :action => "new" %></li>
+      <li><%= link_to "Portion's List", :controller => "portions", :action => "index" %></li>
+    </ul>
+  </div>
+<% end %>
 
-<div>
-  <h2>Morning Snack</h2>
-  <ul>
-    <li><%= link_to "New Portion", :controller => "portions", :action => "new" %></li>
-    <li><%= link_to "Portion's List", :controller => "portions", :action => "index" %></li>
-  </ul>
-</div>
-
-<div>
-  <h2>Lunch</h2>
-  <ul>
-    <li><%= link_to "New Portion", :controller => "portions", :action => "new" %></li>
-    <li><%= link_to "Portion's List", :controller => "portions", :action => "index" %></li>
-  </ul>
-</div>
-
-<div>
-  <h2>Afternoon Snack</h2>
-  <ul>
-    <li><%= link_to "New Portion", :controller => "portions", :action => "new" %></li>
-    <li><%= link_to "Portion's List", :controller => "portions", :action => "index" %></li>
-  </ul>
-</div>
-
-<div>
-  <h2>Lunch</h2>
-  <ul>
-    <li><%= link_to "New Portion", :controller => "portions", :action => "new" %></li>
-    <li><%= link_to "Portion's List", :controller => "portions", :action => "index" %></li>
-  </ul>
-</div>
-
-<div>
-  <h2>Post lunch</h2>
-  <ul>
-    <li><%= link_to "New Portion", :controller => "portions", :action => "new" %></li>
-    <li><%= link_to "Portion's List", :controller => "portions", :action => "index" %></li>
-  </ul>
-</div>
 
   <body>
     <%= yield %>
