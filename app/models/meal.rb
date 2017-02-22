@@ -5,4 +5,7 @@ class Meal < ApplicationRecord
 
   # meal <--> food
   has_many :foods, :through => :portions
+
+  # meal <--> moment
+  belongs_to :moment
 end
