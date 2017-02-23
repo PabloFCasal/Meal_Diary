@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170205142651) do
+ActiveRecord::Schema.define(version: 20170223185511) do
 
   create_table "families", force: :cascade do |t|
     t.string   "name"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20170205142651) do
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index [nil], name: "index_meals_on_moment_id"
   end
 
   create_table "moments", force: :cascade do |t|
