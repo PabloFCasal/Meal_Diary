@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223185511) do
+ActiveRecord::Schema.define(version: 20170223212121) do
 
   create_table "families", force: :cascade do |t|
     t.string   "name"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20170223185511) do
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index [nil], name: "index_meals_on_moment_id"
+    t.integer  "moment_id"
   end
 
   create_table "moments", force: :cascade do |t|
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20170223185511) do
     t.integer  "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "moment_id"
+    t.index ["moment_id"], name: "index_moments_on_moment_id"
   end
 
   create_table "portions", force: :cascade do |t|
