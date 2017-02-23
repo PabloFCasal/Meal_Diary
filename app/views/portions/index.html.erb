@@ -14,6 +14,7 @@
   <tr>
     <td><%= portion.id %></td>
     <td><%= portion.weight %></td>
+    <td><%= portion.moment %></td>
     <td><%= portion.food.nil? ? "No hay comida" : portion.food.name %></td>
     <td><%= portion.food.nil? ? "No valid" : (portion.weight*portion.food.carbs)/100%></td>
     <td><%= portion.food.nil? ? "No valid" : (portion.weight*portion.food.proteins)/100%></td>

@@ -8,4 +8,5 @@ class Meal < ApplicationRecord
 
   # meal <--> moment
   belongs_to :moment
+  
 end
